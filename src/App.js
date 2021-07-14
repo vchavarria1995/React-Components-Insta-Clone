@@ -10,8 +10,8 @@ import React, {useState} from 'react';
 import Posts  from './components/Posts/Posts'
 import SearchBar from './components/SearchBar/SearchBar'
 // Import the dummyData
-import './App.css';
 import dummyData from './dummy-data';
+import './App.css';
 
 const App = () => {
   // Create a state called `posts` to hold the array of post objects, **initializing to dummyData**.
@@ -19,7 +19,7 @@ const App = () => {
   // To make the search bar work (which is stretch) we'd need another state to hold the search term.
   const [posts, setPosts] = useState(dummyData)
 
-  const likePost = postId => {
+  const likePost = (postId) => {
     /*
       This function serves the purpose of increasing the number of likes by one, of the post with a given id.
 
@@ -31,8 +31,8 @@ const App = () => {
         - if the `id` of the post matches `postId`, return a new post object with the desired values (use the spread operator).
         - otherwise just return the post object unchanged.
      */
-        setPosts(posts.map(post => {
-          return post.id === postId ? {...post, likes: post.likes + 1} : post;
+        setPosts(posts.map((post) => {
+          return postId === post.id ? {...post, likes: post.likes + 1} : post;
         }))
   };
 
